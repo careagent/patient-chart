@@ -6,12 +6,6 @@
 
 ---
 
-## The Irreducible Risk Hypothesis
-
-> *The assumption of risk by a licensed provider is the irreducible and non-delegable foundation of clinical practice. While all clinical actions may be delegated to agents acting under provider authority, the risk associated with those actions cannot be transferred. Therefore, AI can only be fully realized in healthcare through a provider-owned model in which the agent, as an extension of the provider, is credentialed and insured through the same mechanisms that govern said provider.*
-
-The Patient Chart is the direct architectural consequence of this principle. If providers bear personal liability for their agents' actions, and patients own their own health data, the record cannot live on provider infrastructure. It lives with the patient — permanently, structurally, and by design.
-
 ---
 
 ## What This Package Does
