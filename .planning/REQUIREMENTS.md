@@ -10,16 +10,16 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Vault Foundation
 
 - [x] **VALT-01**: pnpm TypeScript project with tsdown build, vitest testing, zero runtime npm dependencies
-- [ ] **VALT-02**: Vault directory structure creation with all required subdirectories (ledger/, audit/, keys/, sync/, backup/, emergency/)
-- [ ] **VALT-03**: Vault metadata file (vault.json) with creation timestamp, schema version, vault UUID
+- [x] **VALT-02**: Vault directory structure creation with all required subdirectories (ledger/, audit/, keys/, sync/, backup/, emergency/)
+- [x] **VALT-03**: Vault metadata file (vault.json) with creation timestamp, schema version, vault UUID
 
 ### Audit
 
-- [ ] **AUDT-01**: Hash-chained JSONL append-only audit log with SHA-256 chain from genesis
+- [x] **AUDT-01**: Hash-chained JSONL append-only audit log with SHA-256 chain from genesis
 - [x] **AUDT-02**: 38 vault event types covering lifecycle, ledger, access, write gate, read gate, sync, emergency, keys, and backup
-- [ ] **AUDT-03**: Every vault operation (write, read, grant, sync, emergency, backup) generates an audit event
-- [ ] **AUDT-04**: Audit chain integrity verification detects any tampering
-- [ ] **AUDT-05**: Audit never blocks vault operations (audit write failures do not prevent ledger writes)
+- [x] **AUDT-03**: Every vault operation (write, read, grant, sync, emergency, backup) generates an audit event
+- [x] **AUDT-04**: Audit chain integrity verification detects any tampering
+- [x] **AUDT-05**: Audit never blocks vault operations (audit write failures do not prevent ledger writes)
 
 ### Encryption
 
@@ -175,13 +175,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | VALT-01 | Phase 1 | Complete |
-| VALT-02 | Phase 1 | Pending |
-| VALT-03 | Phase 1 | Pending |
-| AUDT-01 | Phase 1 | Pending |
+| VALT-02 | Phase 1 | Complete |
+| VALT-03 | Phase 1 | Complete |
+| AUDT-01 | Phase 1 | Complete |
 | AUDT-02 | Phase 1 | Complete |
-| AUDT-03 | Phase 1 | Pending |
-| AUDT-04 | Phase 1 | Pending |
-| AUDT-05 | Phase 1 | Pending |
+| AUDT-03 | Phase 1 | Complete |
+| AUDT-04 | Phase 1 | Complete |
+| AUDT-05 | Phase 1 | Complete |
 | ENCR-01 | Phase 2 | Pending |
 | ENCR-02 | Phase 2 | Pending |
 | ENCR-03 | Phase 2 | Pending |

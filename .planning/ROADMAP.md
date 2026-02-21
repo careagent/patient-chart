@@ -36,8 +36,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 4 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Project scaffold, TypeBox schemas (VaultEventType 39 literals, VaultAuditEntry, AuditActor, VaultMetadata), UUIDv7 utility
-- [ ] 01-02-PLAN.md — Vault creation (createVault) and discovery (discoverVaults) with TDD
+- [x] 01-01-PLAN.md — Project scaffold, TypeBox schemas (VaultEventType 39 literals, VaultAuditEntry, AuditActor, VaultMetadata), UUIDv7 utility
+- [x] 01-02-PLAN.md — Vault creation (createVault) and discovery (discoverVaults) with TDD
 - [ ] 01-03-PLAN.md — Audit writer (AuditWriter + VaultAuditPipeline) and chain integrity (verifyChain) with TDD
 - [ ] 01-04-PLAN.md — Package entry point (src/index.ts), full build verification, human approval checkpoint
 

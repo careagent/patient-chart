@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 1 of 8 (Vault Foundation & Audit Pipeline)
-Plan: 2 of 4 in current phase
+Plan: 4 of 4 in current phase
 Status: Executing
-Last activity: 2026-02-21 -- Completed 01-01-PLAN.md (Project Scaffold & Core Types)
+Last activity: 2026-02-21 -- Completed 01-03-PLAN.md (Audit Writer & Integrity Verifier)
 
-Progress: [█░░░░░░░░░] 3%
+Progress: [██░░░░░░░░] 9%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 5min
-- Total execution time: 0.08 hours
+- Total plans completed: 3
+- Average duration: 4min
+- Total execution time: 0.18 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 1 - Vault Foundation | 1 | 5min | 5min |
+| 1 - Vault Foundation | 3 | 11min | 4min |
 
 **Recent Trend:**
-- Last 5 plans: 5min
-- Trend: baseline
+- Last 5 plans: 5min, 3min, 3min
+- Trend: improving
 
 *Updated after each plan completion*
 
@@ -48,6 +48,10 @@ Recent decisions affecting current work:
 - [01-01]: Added @types/node as devDependency for node:crypto type declarations
 - [01-01]: Excluded barrel exports and type schemas from coverage thresholds to avoid false failures on declarative code
 - [01-01]: TypeBox bundled into dist output (inlineOnly: false) to maintain zero runtime deps for consumers
+- [01-02]: Removed unused TypeBox import from vault/schema.ts -- only re-exports and const array needed, no schema construction
+- [01-03]: Hash computed on exact raw JSON line string (not re-serialized object) to avoid key-order non-determinism breaking the chain
+- [01-03]: VaultAuditPipeline generates id (UUIDv7) and timestamp internally -- callers provide only event_type, actor, outcome, details
+- [01-03]: Crash recovery walks from end of file backward, skipping malformed trailing lines to find last valid entry
 
 ### Pending Todos
 
@@ -62,5 +66,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-21
-Stopped at: Completed 01-01-PLAN.md
+Stopped at: Completed 01-03-PLAN.md
 Resume file: None
