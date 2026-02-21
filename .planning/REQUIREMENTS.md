@@ -88,10 +88,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Integration
 
-- [ ] **INTG-01**: E2E: vault creation → entry write → entry read → integrity verification → backup
-- [ ] **INTG-02**: E2E: access grant lifecycle → write gate → read gate → revocation → audit trail verification
-- [ ] **INTG-03**: E2E: sync lifecycle → entry written → sync delivered → grant revoked → sync stopped
-- [ ] **INTG-04**: E2E: emergency access → trigger → authenticate → read → session end → cooldown
+- [ ] **INTG-01**: E2E: vault creation -> entry write -> entry read -> integrity verification -> backup
+- [ ] **INTG-02**: E2E: access grant lifecycle -> write gate -> read gate -> revocation -> audit trail verification
+- [ ] **INTG-03**: E2E: sync lifecycle -> entry written -> sync delivered -> grant revoked -> sync stopped
+- [ ] **INTG-04**: E2E: emergency access -> trigger -> authenticate -> read -> session end -> cooldown
 - [ ] **INTG-05**: Mock consumer tests simulating patient-core consuming the local API through package exports
 
 ### Documentation
@@ -238,10 +238,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DOCS-05 | Phase 8 | Pending |
 
 **Coverage:**
-- v1 requirements: 52 total
-- Mapped to phases: 52
-- Unmapped: 0 ✓
+- v1 requirements: 62 total
+- Mapped to phases: 62
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-21*
-*Last updated: 2026-02-21 after initial definition*
+*Last updated: 2026-02-21 after roadmap creation*
