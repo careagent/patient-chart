@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 1 of 8 (Vault Foundation & Audit Pipeline)
-Plan: 0 of 0 in current phase (plans not yet created)
-Status: Ready to plan
-Last activity: 2026-02-21 -- Roadmap created with 8 phases covering 52 requirements
+Plan: 2 of 4 in current phase
+Status: Executing
+Last activity: 2026-02-21 -- Completed 01-01-PLAN.md (Project Scaffold & Core Types)
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [█░░░░░░░░░] 3%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: -
-- Total execution time: 0 hours
+- Total plans completed: 1
+- Average duration: 5min
+- Total execution time: 0.08 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 1 - Vault Foundation | 1 | 5min | 5min |
 
 **Recent Trend:**
-- Last 5 plans: -
-- Trend: -
+- Last 5 plans: 5min
+- Trend: baseline
 
 *Updated after each plan completion*
 
@@ -44,6 +44,10 @@ Recent decisions affecting current work:
 
 - [Roadmap]: 8-phase build order follows strict architectural dependency graph (Encryption/Audit have no upward deps; Ledger depends on both; Access depends on Ledger; Sync/Emergency depend on Access; Backup depends on Ledger+Facade)
 - [Roadmap]: Phase 5 bundles Local API + Sync + Emergency because all three require a working PatientChart facade and access control, and Sync/Emergency have no dependency on each other
+- [01-01]: Used .mjs/.d.mts output from tsdown (default ESM extension) and updated package.json exports to match
+- [01-01]: Added @types/node as devDependency for node:crypto type declarations
+- [01-01]: Excluded barrel exports and type schemas from coverage thresholds to avoid false failures on declarative code
+- [01-01]: TypeBox bundled into dist output (inlineOnly: false) to maintain zero runtime deps for consumers
 
 ### Pending Todos
 
@@ -58,5 +62,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-21
-Stopped at: Roadmap created, ready for Phase 1 planning
+Stopped at: Completed 01-01-PLAN.md
 Resume file: None
