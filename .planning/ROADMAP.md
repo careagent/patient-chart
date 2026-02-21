@@ -33,11 +33,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Audit entries are appended as hash-chained JSONL lines where each entry's prev_hash is the SHA-256 of the previous line, starting from a genesis entry with prev_hash null
   4. Audit chain verification detects any inserted, modified, or deleted entry and reports the exact point of tampering
   5. An audit write failure does not prevent or delay a simulated vault operation (non-blocking audit guarantee)
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md — Project scaffold, TypeBox schemas (VaultEventType 39 literals, VaultAuditEntry, AuditActor, VaultMetadata), UUIDv7 utility
+- [ ] 01-02-PLAN.md — Vault creation (createVault) and discovery (discoverVaults) with TDD
+- [ ] 01-03-PLAN.md — Audit writer (AuditWriter + VaultAuditPipeline) and chain integrity (verifyChain) with TDD
+- [ ] 01-04-PLAN.md — Package entry point (src/index.ts), full build verification, human approval checkpoint
 
 ### Phase 2: Encryption & Key Management
 **Goal**: Complete cryptographic layer providing AES-256-GCM encryption/decryption, Ed25519 signing/verification, X25519 key agreement, scrypt key derivation, and a key ring with rotation -- all using only node:crypto with zero external dependencies
@@ -157,7 +159,7 @@ Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6 > 7 > 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Vault Foundation & Audit Pipeline | 0/0 | Not started | - |
+| 1. Vault Foundation & Audit Pipeline | 0/4 | Ready to execute | - |
 | 2. Encryption & Key Management | 0/0 | Not started | - |
 | 3. Immutable Ledger | 0/0 | Not started | - |
 | 4. Access Control | 0/0 | Not started | - |
