@@ -12,7 +12,7 @@ Build a patient-sovereign, encrypted, append-only health record vault as a zero-
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Vault Foundation & Audit Pipeline** - Buildable project scaffold with vault directory creation, hash-chained audit trail, and integrity verification
+- [x] **Phase 1: Vault Foundation & Audit Pipeline** - Buildable project scaffold with vault directory creation, hash-chained audit trail, and integrity verification
 - [ ] **Phase 2: Encryption & Key Management** - Complete cryptographic layer with AES-256-GCM, Ed25519, X25519, scrypt, and key ring with rotation
 - [ ] **Phase 3: Immutable Ledger** - Hash-chained, encrypted, signed JSONL ledger with write/read pipelines, query engine, and integrity verification
 - [ ] **Phase 4: Access Control** - Event-sourced ACL as ledger entries with six roles, write gate, read gate, and materialized view
@@ -38,8 +38,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 Plans:
 - [x] 01-01-PLAN.md — Project scaffold, TypeBox schemas (VaultEventType 39 literals, VaultAuditEntry, AuditActor, VaultMetadata), UUIDv7 utility
 - [x] 01-02-PLAN.md — Vault creation (createVault) and discovery (discoverVaults) with TDD
-- [ ] 01-03-PLAN.md — Audit writer (AuditWriter + VaultAuditPipeline) and chain integrity (verifyChain) with TDD
-- [ ] 01-04-PLAN.md — Package entry point (src/index.ts), full build verification, human approval checkpoint
+- [x] 01-03-PLAN.md — Audit writer (AuditWriter + VaultAuditPipeline) and chain integrity (verifyChain) with TDD
+- [x] 01-04-PLAN.md — Package entry point (src/index.ts), full build verification, human approval checkpoint
 
 ### Phase 2: Encryption & Key Management
 **Goal**: Complete cryptographic layer providing AES-256-GCM encryption/decryption, Ed25519 signing/verification, X25519 key agreement, scrypt key derivation, and a key ring with rotation -- all using only node:crypto with zero external dependencies
@@ -159,7 +159,7 @@ Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6 > 7 > 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Vault Foundation & Audit Pipeline | 3/4 | In Progress | - |
+| 1. Vault Foundation & Audit Pipeline | 4/4 | Complete | 2026-02-21 |
 | 2. Encryption & Key Management | 0/0 | Not started | - |
 | 3. Immutable Ledger | 0/0 | Not started | - |
 | 4. Access Control | 0/0 | Not started | - |

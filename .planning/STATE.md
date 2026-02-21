@@ -5,33 +5,33 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** The patient's health record is a permanent, tamper-proof, encrypted artifact that the patient owns absolutely -- it outlives every application that touches it.
-**Current focus:** Phase 1: Vault Foundation & Audit Pipeline
+**Current focus:** Phase 2: Encryption & Key Management
 
 ## Current Position
 
-Phase: 1 of 8 (Vault Foundation & Audit Pipeline)
-Plan: 4 of 4 in current phase
-Status: Executing
-Last activity: 2026-02-21 -- Completed 01-03-PLAN.md (Audit Writer & Integrity Verifier)
+Phase: 2 of 8 (Encryption & Key Management)
+Plan: 1 of 0 in current phase (plans not yet created)
+Status: Phase 1 complete, awaiting Phase 2 planning
+Last activity: 2026-02-21 -- Completed 01-04-PLAN.md (Package Entry Point & Phase Verification)
 
-Progress: [██░░░░░░░░] 9%
+Progress: [██░░░░░░░░] 12%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
+- Total plans completed: 4
 - Average duration: 4min
-- Total execution time: 0.18 hours
+- Total execution time: 0.27 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 1 - Vault Foundation | 3 | 11min | 4min |
+| 1 - Vault Foundation | 4 | 16min | 4min |
 
 **Recent Trend:**
-- Last 5 plans: 5min, 3min, 3min
-- Trend: improving
+- Last 5 plans: 5min, 3min, 3min, 5min
+- Trend: stable
 
 *Updated after each plan completion*
 
@@ -52,6 +52,8 @@ Recent decisions affecting current work:
 - [01-03]: Hash computed on exact raw JSON line string (not re-serialized object) to avoid key-order non-determinism breaking the chain
 - [01-03]: VaultAuditPipeline generates id (UUIDv7) and timestamp internally -- callers provide only event_type, actor, outcome, details
 - [01-03]: Crash recovery walks from end of file backward, skipping malformed trailing lines to find last valid entry
+- [01-04]: createVault accepts optional VaultAuditPipeline as second parameter -- audit is opt-in, not required, maintaining backward compatibility
+- [01-04]: src/index.ts re-exports types with 'export type' syntax for proper TypeScript isolatedModules compatibility
 
 ### Pending Todos
 
@@ -66,5 +68,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-21
-Stopped at: Completed 01-03-PLAN.md
+Stopped at: Completed 01-04-PLAN.md (Phase 1 complete)
 Resume file: None
