@@ -51,11 +51,13 @@ Plans:
   3. X25519 key agreement between two generated key pairs produces an identical shared secret on both sides, and rejects low-order public keys
   4. scrypt derivation from a passphrase and salt is deterministic and uses N=2^17 minimum, with parameters stored in vault.json for future upgradeability
   5. Key ring supports rotation: after rotating to a new key, entries encrypted with any prior key can still be decrypted using the retained historical keys
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md — Encryption TypeBox schemas, typed error classes, scrypt+HKDF key derivation
+- [ ] 02-02-PLAN.md — AES-256-GCM encrypt/decrypt (TDD)
+- [ ] 02-03-PLAN.md — Ed25519 sign/verify + X25519 key agreement (TDD)
+- [ ] 02-04-PLAN.md — Key ring (create/load/save/rotate), vault.json KDF extension, package exports, human verification
 
 ### Phase 3: Immutable Ledger
 **Goal**: Hash-chained, encrypted, signed JSONL ledger with a complete write pipeline (encrypt, sign, chain, append), read pipeline (load, verify, decrypt, verify signature), query engine, entry index, and integrity verification
