@@ -13,7 +13,7 @@ Build a patient-sovereign, encrypted, append-only health record vault as a zero-
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Vault Foundation & Audit Pipeline** - Buildable project scaffold with vault directory creation, hash-chained audit trail, and integrity verification
-- [ ] **Phase 2: Encryption & Key Management** - Complete cryptographic layer with AES-256-GCM, Ed25519, X25519, scrypt, and key ring with rotation
+- [x] **Phase 2: Encryption & Key Management** - Complete cryptographic layer with AES-256-GCM, Ed25519, X25519, scrypt, and key ring with rotation
 - [ ] **Phase 3: Immutable Ledger** - Hash-chained, encrypted, signed JSONL ledger with write/read pipelines, query engine, and integrity verification
 - [ ] **Phase 4: Access Control** - Event-sourced ACL as ledger entries with six roles, write gate, read gate, and materialized view
 - [ ] **Phase 5: Local API, Sync Engine & Emergency Access** - PatientChart facade class, event-driven sync with encrypted delivery, and break-glass emergency protocol
@@ -54,10 +54,10 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Encryption TypeBox schemas, typed error classes, scrypt+HKDF key derivation
-- [ ] 02-02-PLAN.md — AES-256-GCM encrypt/decrypt (TDD)
-- [ ] 02-03-PLAN.md — Ed25519 sign/verify + X25519 key agreement (TDD)
-- [ ] 02-04-PLAN.md — Key ring (create/load/save/rotate), vault.json KDF extension, package exports, human verification
+- [x] 02-01-PLAN.md — Encryption TypeBox schemas, typed error classes, scrypt+HKDF key derivation
+- [x] 02-02-PLAN.md — AES-256-GCM encrypt/decrypt (TDD)
+- [x] 02-03-PLAN.md — Ed25519 sign/verify + X25519 key agreement (TDD)
+- [x] 02-04-PLAN.md — Key ring (create/load/save/rotate), vault.json KDF extension, package exports, human verification
 
 ### Phase 3: Immutable Ledger
 **Goal**: Hash-chained, encrypted, signed JSONL ledger with a complete write pipeline (encrypt, sign, chain, append), read pipeline (load, verify, decrypt, verify signature), query engine, entry index, and integrity verification
@@ -162,7 +162,7 @@ Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6 > 7 > 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Vault Foundation & Audit Pipeline | 4/4 | Complete    | 2026-02-21 |
-| 2. Encryption & Key Management | 0/0 | Not started | - |
+| 2. Encryption & Key Management | 4/4 | Complete    | 2026-02-21 |
 | 3. Immutable Ledger | 0/0 | Not started | - |
 | 4. Access Control | 0/0 | Not started | - |
 | 5. Local API, Sync Engine & Emergency Access | 0/0 | Not started | - |
