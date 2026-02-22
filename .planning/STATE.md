@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 2 of 8 (Encryption & Key Management)
-Plan: 4 of 4 in current phase
-Status: Executing Phase 2 plans
-Last activity: 2026-02-22 -- Completed 02-03-PLAN.md (Ed25519/X25519 Signing and Key Agreement)
+Plan: 4 of 4 in current phase (COMPLETE)
+Status: Phase 2 complete -- awaiting human verification checkpoint
+Last activity: 2026-02-22 -- Completed 02-04-PLAN.md (Key Ring and Phase 2 Public API)
 
-Progress: [████░░░░░░] 22%
+Progress: [█████░░░░░] 25%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
+- Total plans completed: 8
 - Average duration: 3min
-- Total execution time: 0.38 hours
+- Total execution time: 0.43 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 - Vault Foundation | 4 | 16min | 4min |
-| 2 - Encryption & Key Management | 3 | 7min | 2min |
+| 2 - Encryption & Key Management | 4 | 10min | 2.5min |
 
 **Recent Trend:**
-- Last 5 plans: 3min, 5min, 2min, 2min, 3min
+- Last 5 plans: 5min, 2min, 2min, 3min, 3min
 - Trend: stable
 
 *Updated after each plan completion*
@@ -64,6 +64,9 @@ Recent decisions affecting current work:
 - [02-03]: Ed25519 sign uses null algorithm parameter (not sha256) per RFC 8032 EdDSA internal SHA-512
 - [02-03]: X25519 low-order rejection relies on OpenSSL automatic protection rather than custom validation
 - [02-03]: DER header constants exported as readonly Buffer for documentation and potential validation use
+- [02-04]: KeyRing stores keyWrappingKey internally so save/rotate can re-encrypt with fresh IVs without caller re-providing the key
+- [02-04]: KeyRing uses static factory methods (create/load) not constructor for enforced initialization patterns
+- [02-04]: Key-wrapping key ID is a constant 'kwk' string since it is never stored in the key ring itself
 
 ### Pending Todos
 
@@ -78,5 +81,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-22
-Stopped at: Completed 02-03-PLAN.md (Ed25519/X25519 Signing and Key Agreement)
+Stopped at: Completed 02-04-PLAN.md (Key Ring and Phase 2 Public API) -- awaiting human-verify checkpoint
 Resume file: None
