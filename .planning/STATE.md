@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 2 of 8 (Encryption & Key Management)
-Plan: 3 of 4 in current phase
+Plan: 4 of 4 in current phase
 Status: Executing Phase 2 plans
-Last activity: 2026-02-22 -- Completed 02-02-PLAN.md (AES-256-GCM Encrypt/Decrypt)
+Last activity: 2026-02-22 -- Completed 02-03-PLAN.md (Ed25519/X25519 Signing and Key Agreement)
 
-Progress: [████░░░░░░] 19%
+Progress: [████░░░░░░] 22%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
+- Total plans completed: 7
 - Average duration: 3min
-- Total execution time: 0.33 hours
+- Total execution time: 0.38 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 - Vault Foundation | 4 | 16min | 4min |
-| 2 - Encryption & Key Management | 2 | 4min | 2min |
+| 2 - Encryption & Key Management | 3 | 7min | 2min |
 
 **Recent Trend:**
-- Last 5 plans: 3min, 3min, 5min, 2min, 2min
+- Last 5 plans: 3min, 5min, 2min, 2min, 3min
 - Trend: stable
 
 *Updated after each plan completion*
@@ -61,6 +61,9 @@ Recent decisions affecting current work:
 - [02-01]: maxmem set to 256 MiB for scrypt to accommodate N values up to 2^20
 - [02-02]: IV is never a parameter -- always generated internally by encrypt to prevent IV reuse by design
 - [02-02]: All node:crypto exceptions wrapped in CryptoError with generic messages to prevent key material leakage in errors
+- [02-03]: Ed25519 sign uses null algorithm parameter (not sha256) per RFC 8032 EdDSA internal SHA-512
+- [02-03]: X25519 low-order rejection relies on OpenSSL automatic protection rather than custom validation
+- [02-03]: DER header constants exported as readonly Buffer for documentation and potential validation use
 
 ### Pending Todos
 
@@ -75,5 +78,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-22
-Stopped at: Completed 02-02-PLAN.md (AES-256-GCM Encrypt/Decrypt)
+Stopped at: Completed 02-03-PLAN.md (Ed25519/X25519 Signing and Key Agreement)
 Resume file: None
