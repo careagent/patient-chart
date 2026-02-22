@@ -23,7 +23,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Encryption
 
-- [ ] **ENCR-01**: AES-256-GCM encryption/decryption for ledger entry payloads using node:crypto
+- [x] **ENCR-01**: AES-256-GCM encryption/decryption for ledger entry payloads using node:crypto
 - [ ] **ENCR-02**: Ed25519 key pair generation, signing, and verification using node:crypto
 - [ ] **ENCR-03**: X25519 key agreement for per-recipient sync payload encryption
 - [x] **ENCR-04**: scrypt key derivation from patient passphrase to master key
@@ -182,7 +182,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUDT-03 | Phase 1 | Complete |
 | AUDT-04 | Phase 1 | Complete |
 | AUDT-05 | Phase 1 | Complete |
-| ENCR-01 | Phase 2 | Pending |
+| ENCR-01 | Phase 2 | Complete |
 | ENCR-02 | Phase 2 | Pending |
 | ENCR-03 | Phase 2 | Pending |
 | ENCR-04 | Phase 2 | Complete |
