@@ -26,9 +26,9 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **ENCR-01**: AES-256-GCM encryption/decryption for ledger entry payloads using node:crypto
 - [ ] **ENCR-02**: Ed25519 key pair generation, signing, and verification using node:crypto
 - [ ] **ENCR-03**: X25519 key agreement for per-recipient sync payload encryption
-- [ ] **ENCR-04**: scrypt key derivation from patient passphrase to master key
+- [x] **ENCR-04**: scrypt key derivation from patient passphrase to master key
 - [ ] **ENCR-05**: Key ring with rotation: new keys for new entries, old keys retained for historical decryption
-- [ ] **ENCR-06**: All cryptographic operations use only node:crypto — zero external crypto dependencies
+- [x] **ENCR-06**: All cryptographic operations use only node:crypto — zero external crypto dependencies
 
 ### Ledger
 
@@ -185,9 +185,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ENCR-01 | Phase 2 | Pending |
 | ENCR-02 | Phase 2 | Pending |
 | ENCR-03 | Phase 2 | Pending |
-| ENCR-04 | Phase 2 | Pending |
+| ENCR-04 | Phase 2 | Complete |
 | ENCR-05 | Phase 2 | Pending |
-| ENCR-06 | Phase 2 | Pending |
+| ENCR-06 | Phase 2 | Complete |
 | LDGR-01 | Phase 3 | Pending |
 | LDGR-02 | Phase 3 | Pending |
 | LDGR-03 | Phase 3 | Pending |

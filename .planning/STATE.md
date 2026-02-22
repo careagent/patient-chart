@@ -10,27 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 2 of 8 (Encryption & Key Management)
-Plan: 1 of 0 in current phase (plans not yet created)
-Status: Phase 1 complete, awaiting Phase 2 planning
-Last activity: 2026-02-21 -- Completed 01-04-PLAN.md (Package Entry Point & Phase Verification)
+Plan: 2 of 4 in current phase
+Status: Executing Phase 2 plans
+Last activity: 2026-02-22 -- Completed 02-01-PLAN.md (Encryption Types, Errors, and Key Derivation)
 
-Progress: [██░░░░░░░░] 12%
+Progress: [███░░░░░░░] 16%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
+- Total plans completed: 5
 - Average duration: 4min
-- Total execution time: 0.27 hours
+- Total execution time: 0.30 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 - Vault Foundation | 4 | 16min | 4min |
+| 2 - Encryption & Key Management | 1 | 2min | 2min |
 
 **Recent Trend:**
-- Last 5 plans: 5min, 3min, 3min, 5min
+- Last 5 plans: 3min, 3min, 5min, 2min
 - Trend: stable
 
 *Updated after each plan completion*
@@ -54,6 +55,10 @@ Recent decisions affecting current work:
 - [01-03]: Crash recovery walks from end of file backward, skipping malformed trailing lines to find last valid entry
 - [01-04]: createVault accepts optional VaultAuditPipeline as second parameter -- audit is opt-in, not required, maintaining backward compatibility
 - [01-04]: src/index.ts re-exports types with 'export type' syntax for proper TypeScript isolatedModules compatibility
+- [02-01]: Error classes use simple inheritance (CryptoError base) with descriptive this.name for instanceof checks
+- [02-01]: DEFAULT_KDF_PARAMS omits salt (generated per vault) -- stores algorithm, N, r, p, key_length only
+- [02-01]: HKDF uses sha256 digest -- standard choice for sub-key derivation from scrypt master key
+- [02-01]: maxmem set to 256 MiB for scrypt to accommodate N values up to 2^20
 
 ### Pending Todos
 
@@ -67,6 +72,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-21
-Stopped at: Completed 01-04-PLAN.md (Phase 1 complete)
+Last session: 2026-02-22
+Stopped at: Completed 02-01-PLAN.md (Encryption Types, Errors, and Key Derivation)
 Resume file: None
