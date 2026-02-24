@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** The patient's health record is a permanent, tamper-proof, encrypted artifact that the patient owns absolutely -- it outlives every application that touches it.
-**Current focus:** Phase 2 complete -- ready for Phase 3: Immutable Ledger
+**Current focus:** Phase 9 in progress -- Knowledge Graph Layer
 
 ## Current Position
 
-Phase: 2 of 8 (Encryption & Key Management) -- COMPLETE
-Plan: 4 of 4 in current phase (COMPLETE)
-Status: Phase 2 complete -- human verification checkpoint approved
-Last activity: 2026-02-21 -- Checkpoint approved for 02-04-PLAN.md (Key Ring and Phase 2 Public API)
+Phase: 9 of 9 (Knowledge Graph Layer)
+Plan: 1 of 3 in current phase (COMPLETE)
+Status: Executing Phase 9 -- Plan 01 complete
+Last activity: 2026-02-24 -- Completed 09-01-PLAN.md (Knowledge Graph Foundation)
 
-Progress: [█████░░░░░] 25%
+Progress: [█████░░░░░] 30%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
+- Total plans completed: 9
 - Average duration: 3min
-- Total execution time: 0.43 hours
+- Total execution time: 0.55 hours
 
 **By Phase:**
 
@@ -29,9 +29,10 @@ Progress: [█████░░░░░] 25%
 |-------|-------|-------|----------|
 | 1 - Vault Foundation | 4 | 16min | 4min |
 | 2 - Encryption & Key Management | 4 | 10min | 2.5min |
+| 9 - Knowledge Graph Layer | 1 | 7min | 7min |
 
 **Recent Trend:**
-- Last 5 plans: 5min, 2min, 2min, 3min, 3min
+- Last 5 plans: 2min, 2min, 3min, 3min, 7min
 - Trend: stable
 
 *Updated after each plan completion*
@@ -67,6 +68,13 @@ Recent decisions affecting current work:
 - [02-04]: KeyRing stores keyWrappingKey internally so save/rotate can re-encrypt with fresh IVs without caller re-providing the key
 - [02-04]: KeyRing uses static factory methods (create/load) not constructor for enforced initialization patterns
 - [02-04]: Key-wrapping key ID is a constant 'kwk' string since it is never stored in the key ring itself
+- [09-01]: Error classes follow encryption/errors.ts pattern: simple inheritance with descriptive this.name
+- [09-01]: KnowledgeNoteMeta has 5 required fields (id, type, status, created, updated) and 10 optional clinical fields
+- [09-01]: KNOWLEDGE_SUBDIRS is a separate constant from VAULT_SUBDIRS for knowledge-module-scoped usage
+
+### Roadmap Evolution
+
+- Phase 9 added: Knowledge Graph Layer
 
 ### Pending Todos
 
@@ -80,6 +88,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-21
-Stopped at: Completed 02-04-PLAN.md -- Phase 2 fully complete (checkpoint approved)
+Last session: 2026-02-24
+Stopped at: Completed 09-01-PLAN.md (Knowledge Graph Foundation)
 Resume file: None
