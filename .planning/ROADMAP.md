@@ -69,11 +69,13 @@ Plans:
   3. Amendments are stored as new entries referencing the original entry's UUID, and both the original and amendment are independently queryable
   4. The query engine filters entries by entry_type, author, date range, and amends field, and the entry index provides O(1) lookups by entry_type and author
   5. Ledger integrity verification walks the full chain and detects any hash break, signature failure, or content tampering, reporting the exact failing entry
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md — Ledger TypeBox schemas (26 entry types, EntryAuthor, EntryMetadata, SignableContent, LedgerEntry), error classes, canonicalize function
+- [ ] 03-02-PLAN.md — LedgerWriter (sign -> encrypt -> chain -> append) and LedgerReader (decrypt -> verify signature) with TDD
+- [ ] 03-03-PLAN.md — IndexManager (O(1) lookups by type/author/id) and query engine (filter by type, author, date, amends) with TDD
+- [ ] 03-04-PLAN.md — Ledger integrity verification (chain-only and full chain+signature), package exports, human verification
 
 ### Phase 4: Access Control
 **Goal**: Event-sourced ACL stored as immutable ledger entries with six access roles, a write gate enforcing five checks, a read gate enforcing four checks, and a materialized ACL view providing O(1) grant lookups
@@ -163,7 +165,7 @@ Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6 > 7 > 8
 |-------|----------------|--------|-----------|
 | 1. Vault Foundation & Audit Pipeline | 4/4 | Complete    | 2026-02-21 |
 | 2. Encryption & Key Management | 4/4 | Complete    | 2026-02-22 |
-| 3. Immutable Ledger | 0/0 | Not started | - |
+| 3. Immutable Ledger | 0/4 | Planned | - |
 | 4. Access Control | 0/0 | Not started | - |
 | 5. Local API, Sync Engine & Emergency Access | 0/0 | Not started | - |
 | 6. Backup Management | 0/0 | Not started | - |
