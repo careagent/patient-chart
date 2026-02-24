@@ -10,16 +10,16 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 3 of 9 (Immutable Ledger)
-Plan: 3 of 4 in current phase (COMPLETE)
-Status: Executing Phase 3 -- plan 3 of 4 complete
-Last activity: 2026-02-24 -- Completed 03-03-PLAN.md (Entry Index & Query Engine)
+Plan: 4 of 4 in current phase (COMPLETE)
+Status: Phase 3 complete -- all 4 plans executed
+Last activity: 2026-02-24 -- Completed 03-04-PLAN.md (Ledger Integrity Verification & Exports)
 
-Progress: [█████░----] 48%
+Progress: [██████----] 56%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 14
+- Total plans completed: 15
 - Average duration: 3min
 - Total execution time: 0.80 hours
 
@@ -29,7 +29,7 @@ Progress: [█████░----] 48%
 |-------|-------|-------|----------|
 | 1 - Vault Foundation | 4 | 16min | 4min |
 | 2 - Encryption & Key Management | 4 | 10min | 2.5min |
-| 3 - Immutable Ledger | 3 | 9min | 3min |
+| 3 - Immutable Ledger | 4 | 14min | 3.5min |
 | 9 - Knowledge Graph Layer | 3 | 12min | 4min |
 
 **Recent Trend:**
@@ -87,6 +87,9 @@ Recent decisions affecting current work:
 - [03-03]: Query engine reads entries.jsonl once as line array and accesses by line number for efficient random access
 - [03-03]: Date range filtering uses ISO 8601 string comparison applied before decryption for performance
 - [03-03]: Combined filters produce set intersection starting from smallest candidate set
+- [03-04]: verifyLedgerChain hashes the raw JSON line string (same as writer) for SHA-256 chain verification -- consistent with audit/integrity.ts pattern, avoids key-order non-determinism
+- [03-04]: verifyLedgerIntegrity delegates to readEntry() for signature/decryption -- single source of truth, avoids duplicating crypto logic
+- [03-04]: LedgerIntegrityResult.errorType discriminant ('chain' | 'signature' | 'decryption' | 'schema' | 'json') differentiates key-unavailability from active tampering
 
 ### Roadmap Evolution
 
@@ -105,5 +108,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-24
-Stopped at: Completed 03-03-PLAN.md (Entry Index & Query Engine)
+Stopped at: Completed 03-04-PLAN.md (Ledger Integrity Verification & Exports) -- Phase 3 complete
 Resume file: None
