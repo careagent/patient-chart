@@ -169,3 +169,14 @@ Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6 > 7 > 8
 | 6. Backup Management | 0/0 | Not started | - |
 | 7. Integration Testing | 0/0 | Not started | - |
 | 8. Documentation & Release | 0/0 | Not started | - |
+
+### Phase 9: Knowledge Graph Layer
+
+**Goal:** Add a `knowledge/` directory to the vault and a KnowledgeStore API for encrypted CRUD operations on Obsidian-compatible markdown notes -- the living, problem-oriented medical record layer (Layer 3) built on the immutable ledger
+**Depends on:** Phase 2 (AES-256-GCM encrypt/decrypt, KeyRing, audit pipeline)
+**Plans:** 3 plans
+
+Plans:
+- [ ] 09-01-PLAN.md — Knowledge TypeBox schemas, error classes, vault infrastructure (VAULT_SUBDIRS + audit events)
+- [ ] 09-02-PLAN.md — KnowledgeStore class (TDD: encrypted read/write/list/noteExists)
+- [ ] 09-03-PLAN.md — Package exports, build verification, human approval checkpoint
