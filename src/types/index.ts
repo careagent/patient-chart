@@ -9,3 +9,12 @@ export {
   KeyRecordSchema,
   KeyRingDataSchema,
 } from './encryption.js';
+
+// Knowledge graph types
+export type { KnowledgeNoteMeta, ClinicalStatus, VerificationStatus, NoteType } from './knowledge.js';
+export {
+  KnowledgeNoteMetaSchema,
+  ClinicalStatusSchema,
+  VerificationStatusSchema,
+  NoteTypeSchema,
+} from './knowledge.js';

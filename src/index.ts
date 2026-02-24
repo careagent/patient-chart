@@ -34,3 +34,19 @@ export type { EncryptedPayload, KdfParams, KeyRecord, KeyRingData } from './type
 
 // Encryption schemas (value exports for runtime validation)
 export { EncryptedPayloadSchema, KdfParamsSchema, KeyRecordSchema, KeyRingDataSchema } from './types/encryption.js';
+
+// Knowledge graph
+export { KnowledgeStore } from './knowledge/store.js';
+
+// Knowledge graph constants
+export { KNOWLEDGE_SUBDIRS } from './knowledge/schema.js';
+export type { KnowledgeSubdir } from './knowledge/schema.js';
+
+// Knowledge graph errors
+export { KnowledgeStoreError, NoteNotFoundError, NoteCorruptedError, PathTraversalError } from './knowledge/errors.js';
+
+// Knowledge graph types (type-only exports for isolatedModules)
+export type { KnowledgeNoteMeta, ClinicalStatus, VerificationStatus, NoteType } from './types/knowledge.js';
+
+// Knowledge graph schemas (value exports for runtime validation)
+export { KnowledgeNoteMetaSchema, ClinicalStatusSchema, VerificationStatusSchema, NoteTypeSchema } from './types/knowledge.js';

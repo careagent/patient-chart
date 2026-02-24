@@ -40,7 +40,7 @@ export class KnowledgeStore {
    * @param pipeline - Optional audit pipeline for emitting knowledge events.
    */
   constructor(
-    private readonly vaultPath: string,
+    vaultPath: string,
     private readonly getActiveKey: () => { keyId: string; key: Buffer },
     private readonly getKeyById: (keyId: string) => Buffer,
     private readonly pipeline?: VaultAuditPipeline,
