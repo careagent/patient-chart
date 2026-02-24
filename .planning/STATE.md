@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 3 of 9 (Immutable Ledger)
-Plan: 1 of 4 in current phase (COMPLETE)
-Status: Executing Phase 3 -- plan 1 of 4 complete
-Last activity: 2026-02-24 -- Completed 03-01-PLAN.md (Ledger Types & Canonicalization)
+Plan: 2 of 4 in current phase (COMPLETE)
+Status: Executing Phase 3 -- plan 2 of 4 complete
+Last activity: 2026-02-24 -- Completed 03-02-PLAN.md (Ledger Write & Read Pipelines)
 
-Progress: [████------] 40%
+Progress: [████░-----] 45%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
+- Total plans completed: 13
 - Average duration: 3min
-- Total execution time: 0.7 hours
+- Total execution time: 0.75 hours
 
 **By Phase:**
 
@@ -29,11 +29,11 @@ Progress: [████------] 40%
 |-------|-------|-------|----------|
 | 1 - Vault Foundation | 4 | 16min | 4min |
 | 2 - Encryption & Key Management | 4 | 10min | 2.5min |
-| 3 - Immutable Ledger | 1 | 3min | 3min |
+| 3 - Immutable Ledger | 2 | 6min | 3min |
 | 9 - Knowledge Graph Layer | 3 | 12min | 4min |
 
 **Recent Trend:**
-- Last 5 plans: 3min, 7min, 3min, 2min, 3min
+- Last 5 plans: 7min, 3min, 2min, 3min, 3min
 - Trend: stable
 
 *Updated after each plan completion*
@@ -79,6 +79,10 @@ Recent decisions affecting current work:
 - [03-01]: canonicalize() uses JSON.stringify with recursive key-sorting replacer for deterministic byte output
 - [03-01]: LedgerError hierarchy mirrors CryptoError pattern: base class + 3 specific subclasses with locator info
 - [03-01]: SignatureVerificationError/ChainVerificationError include entryId/entryIndex for precise diagnostics
+- [03-02]: LedgerWriter accepts getActiveKey function (not KeyRing) for loose coupling, matching KnowledgeStore pattern
+- [03-02]: EntryMetadata serialized as JSON is passed as AAD to AES-256-GCM for free metadata integrity
+- [03-02]: Optional metadata fields (amends, synced_entry) excluded when undefined for AAD consistency between write and read
+- [03-02]: metadata.payload_size is byte length of plaintext JSON string before encryption
 
 ### Roadmap Evolution
 
@@ -97,5 +101,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-24
-Stopped at: Completed 03-01-PLAN.md (Ledger Types & Canonicalization)
+Stopped at: Completed 03-02-PLAN.md (Ledger Write & Read Pipelines)
 Resume file: None
