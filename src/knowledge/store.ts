@@ -5,7 +5,6 @@ import {
   existsSync,
   mkdirSync,
   readdirSync,
-  statSync,
 } from 'node:fs';
 import { join, resolve, dirname, relative } from 'node:path';
 import { Value } from '@sinclair/typebox/value';
