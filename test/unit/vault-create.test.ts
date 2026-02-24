@@ -3,6 +3,7 @@ import { mkdirSync, rmSync, existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { createVault } from '../../src/vault/create.js';
+import { VAULT_SUBDIRS } from '../../src/vault/schema.js';
 import { VaultAuditPipeline } from '../../src/audit/writer.js';
 
 const UUID_V7_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
@@ -20,12 +21,37 @@ describe('createVault', () => {
     rmSync(testDir, { recursive: true, force: true });
   });
 
-  it('creates all six required subdirectories', () => {
+  it('creates all six original subdirectories', () => {
     const vaultPath = join(testDir, 'vault');
     createVault(vaultPath);
     for (const subdir of ['ledger', 'audit', 'keys', 'sync', 'backup', 'emergency']) {
       expect(existsSync(join(vaultPath, subdir))).toBe(true);
     }
+  });
+
+  it('creates knowledge/ directory and all 10 clinical domain subdirectories', () => {
+    const vaultPath = join(testDir, 'vault');
+    createVault(vaultPath);
+    expect(existsSync(join(vaultPath, 'knowledge'))).toBe(true);
+    const knowledgeSubdirs = [
+      'knowledge/conditions',
+      'knowledge/medications',
+      'knowledge/allergies',
+      'knowledge/labs',
+      'knowledge/imaging',
+      'knowledge/procedures',
+      'knowledge/providers',
+      'knowledge/encounters',
+      'knowledge/directives',
+      'knowledge/documents',
+    ];
+    for (const subdir of knowledgeSubdirs) {
+      expect(existsSync(join(vaultPath, subdir))).toBe(true);
+    }
+  });
+
+  it('has 17 total entries in VAULT_SUBDIRS (6 original + 1 knowledge + 10 knowledge children)', () => {
+    expect(VAULT_SUBDIRS).toHaveLength(17);
   });
 
   it('writes vault.json to the vault path', () => {

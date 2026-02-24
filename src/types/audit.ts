@@ -1,8 +1,9 @@
 import { Type, type Static } from '@sinclair/typebox';
 
 /**
- * All vault event types. 38 PRD-defined types + audit_gap (39th, added per CONTEXT.md
- * non-blocking audit design to mark dropped entries while keeping chain intact).
+ * All vault event types. 38 PRD-defined types + audit_gap + 3 knowledge graph events (42 total).
+ * audit_gap added per CONTEXT.md non-blocking audit design to mark dropped entries while
+ * keeping chain intact. Knowledge events added for Phase 9 knowledge graph layer.
  */
 export const VaultEventTypeSchema = Type.Union([
   // Vault lifecycle
@@ -53,7 +54,11 @@ export const VaultEventTypeSchema = Type.Union([
   // Discovery
   Type.Literal('vault_discovered'),
   Type.Literal('vault_discovery_failed'),
-  // Gap marker — 39th type, marks a dropped audit entry while preserving chain
+  // Knowledge graph
+  Type.Literal('knowledge_note_created'),
+  Type.Literal('knowledge_note_updated'),
+  Type.Literal('knowledge_note_read'),
+  // Gap marker — 42nd type, marks a dropped audit entry while preserving chain
   Type.Literal('audit_gap'),
 ]);
 
