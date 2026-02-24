@@ -50,3 +50,25 @@ export type { KnowledgeNoteMeta, ClinicalStatus, VerificationStatus, NoteType } 
 
 // Knowledge graph schemas (value exports for runtime validation)
 export { KnowledgeNoteMetaSchema, ClinicalStatusSchema, VerificationStatusSchema, NoteTypeSchema } from './types/knowledge.js';
+
+// Ledger
+export { LedgerWriter } from './ledger/writer.js';
+export { readEntry, readAllEntries } from './ledger/reader.js';
+export { queryEntries } from './ledger/query.js';
+export type { LedgerQuery } from './ledger/query.js';
+export { IndexManager } from './ledger/index-manager.js';
+export { verifyLedgerChain, verifyLedgerIntegrity } from './ledger/integrity.js';
+export type { LedgerChainResult, LedgerIntegrityResult } from './ledger/integrity.js';
+export { canonicalize } from './ledger/canonicalize.js';
+
+// Ledger constants
+export { ENTRIES_FILENAME, INDEX_FILENAME } from './ledger/schema.js';
+
+// Ledger errors
+export { LedgerError, LedgerCorruptedError, SignatureVerificationError, ChainVerificationError } from './ledger/errors.js';
+
+// Ledger types (type-only exports for isolatedModules)
+export type { LedgerEntry, LedgerEntryType, EntryAuthor, EntryMetadata, SignableContent } from './types/ledger.js';
+
+// Ledger schemas (value exports for runtime validation)
+export { LedgerEntrySchema, LedgerEntryTypeSchema, EntryAuthorSchema, EntryMetadataSchema, SignableContentSchema } from './types/ledger.js';
