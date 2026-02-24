@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-21)
 ## Current Position
 
 Phase: 3 of 9 (Immutable Ledger)
-Plan: 2 of 4 in current phase (COMPLETE)
-Status: Executing Phase 3 -- plan 2 of 4 complete
-Last activity: 2026-02-24 -- Completed 03-02-PLAN.md (Ledger Write & Read Pipelines)
+Plan: 3 of 4 in current phase (COMPLETE)
+Status: Executing Phase 3 -- plan 3 of 4 complete
+Last activity: 2026-02-24 -- Completed 03-03-PLAN.md (Entry Index & Query Engine)
 
-Progress: [████░-----] 45%
+Progress: [█████░----] 48%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 13
+- Total plans completed: 14
 - Average duration: 3min
-- Total execution time: 0.75 hours
+- Total execution time: 0.80 hours
 
 **By Phase:**
 
@@ -29,11 +29,11 @@ Progress: [████░-----] 45%
 |-------|-------|-------|----------|
 | 1 - Vault Foundation | 4 | 16min | 4min |
 | 2 - Encryption & Key Management | 4 | 10min | 2.5min |
-| 3 - Immutable Ledger | 2 | 6min | 3min |
+| 3 - Immutable Ledger | 3 | 9min | 3min |
 | 9 - Knowledge Graph Layer | 3 | 12min | 4min |
 
 **Recent Trend:**
-- Last 5 plans: 7min, 3min, 2min, 3min, 3min
+- Last 5 plans: 3min, 2min, 3min, 3min, 3min
 - Trend: stable
 
 *Updated after each plan completion*
@@ -83,6 +83,10 @@ Recent decisions affecting current work:
 - [03-02]: EntryMetadata serialized as JSON is passed as AAD to AES-256-GCM for free metadata integrity
 - [03-02]: Optional metadata fields (amends, synced_entry) excluded when undefined for AAD consistency between write and read
 - [03-02]: metadata.payload_size is byte length of plaintext JSON string before encryption
+- [03-03]: IndexManager uses Map<string, Set<string>> for byType/byAuthor/byAmends for O(1) lookup with dedup
+- [03-03]: Query engine reads entries.jsonl once as line array and accesses by line number for efficient random access
+- [03-03]: Date range filtering uses ISO 8601 string comparison applied before decryption for performance
+- [03-03]: Combined filters produce set intersection starting from smallest candidate set
 
 ### Roadmap Evolution
 
@@ -101,5 +105,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-24
-Stopped at: Completed 03-02-PLAN.md (Ledger Write & Read Pipelines)
+Stopped at: Completed 03-03-PLAN.md (Entry Index & Query Engine)
 Resume file: None
