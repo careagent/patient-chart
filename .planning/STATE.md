@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** The patient's health record is a permanent, tamper-proof, encrypted artifact that the patient owns absolutely -- it outlives every application that touches it.
-**Current focus:** Phase 9 in progress -- Knowledge Graph Layer
+**Current focus:** Phase 3 in progress -- Immutable Ledger
 
 ## Current Position
 
-Phase: 9 of 9 (Knowledge Graph Layer)
-Plan: 3 of 3 in current phase (COMPLETE)
-Status: Phase 9 complete -- human verification checkpoint approved
-Last activity: 2026-02-24 -- Checkpoint approved for 09-03-PLAN.md (Package Exports & Human Verification)
+Phase: 3 of 9 (Immutable Ledger)
+Plan: 1 of 4 in current phase (COMPLETE)
+Status: Executing Phase 3 -- plan 1 of 4 complete
+Last activity: 2026-02-24 -- Completed 03-01-PLAN.md (Ledger Types & Canonicalization)
 
-Progress: [██████████] 100%
+Progress: [████------] 40%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
+- Total plans completed: 12
 - Average duration: 3min
-- Total execution time: 0.6 hours
+- Total execution time: 0.7 hours
 
 **By Phase:**
 
@@ -29,10 +29,11 @@ Progress: [██████████] 100%
 |-------|-------|-------|----------|
 | 1 - Vault Foundation | 4 | 16min | 4min |
 | 2 - Encryption & Key Management | 4 | 10min | 2.5min |
+| 3 - Immutable Ledger | 1 | 3min | 3min |
 | 9 - Knowledge Graph Layer | 3 | 12min | 4min |
 
 **Recent Trend:**
-- Last 5 plans: 3min, 3min, 7min, 3min, 2min
+- Last 5 plans: 3min, 7min, 3min, 2min, 3min
 - Trend: stable
 
 *Updated after each plan completion*
@@ -75,6 +76,9 @@ Recent decisions affecting current work:
 - [09-02]: Failed getKeyById (unknown key_id) caught and rethrown as NoteCorruptedError for uniform error surface
 - [09-02]: listNotes returns paths relative to the search folder (knowledge/ or subfolder), not absolute paths
 - [09-03]: Removed unused private readonly from KnowledgeStore vaultPath param -- only used to derive knowledgeDir, not stored
+- [03-01]: canonicalize() uses JSON.stringify with recursive key-sorting replacer for deterministic byte output
+- [03-01]: LedgerError hierarchy mirrors CryptoError pattern: base class + 3 specific subclasses with locator info
+- [03-01]: SignatureVerificationError/ChainVerificationError include entryId/entryIndex for precise diagnostics
 
 ### Roadmap Evolution
 
@@ -88,10 +92,10 @@ None yet.
 
 - [Phase 5]: Sync transport contract is unresolved -- the SyncTransport interface consumers implement must be defined before sync delivery layer can be built. Resolve during Phase 4 planning.
 - [Phase 5]: Concurrent vault access / file locking strategy needs a decision before PatientChart facade ships. Options: lockfile, in-process mutex, or documented single-consumer constraint. Resolve during Phase 4 planning.
-- [Phase 3/4]: Provider write locality assumption (local writes only) should be confirmed during Phase 3 planning.
+- [Phase 3/4]: Provider write locality assumption CONFIRMED during Phase 3 planning -- local writes only. Remote write is a Phase 5 transport concern. The provider's agent must be present on the machine to write (private key for signing and vault encryption key are local-only resources).
 
 ## Session Continuity
 
 Last session: 2026-02-24
-Stopped at: Phase 9 complete -- all 3 plans executed, checkpoint approved
+Stopped at: Completed 03-01-PLAN.md (Ledger Types & Canonicalization)
 Resume file: None
