@@ -10,6 +10,16 @@ export {
   KeyRingDataSchema,
 } from './encryption.js';
 
+// Ledger types
+export type { LedgerEntry, LedgerEntryType, EntryAuthor, EntryMetadata, SignableContent } from './ledger.js';
+export {
+  LedgerEntrySchema,
+  LedgerEntryTypeSchema,
+  EntryAuthorSchema,
+  EntryMetadataSchema,
+  SignableContentSchema,
+} from './ledger.js';
+
 // Knowledge graph types
 export type { KnowledgeNoteMeta, ClinicalStatus, VerificationStatus, NoteType } from './knowledge.js';
 export {
