@@ -72,3 +72,35 @@ export type { LedgerEntry, LedgerEntryType, EntryAuthor, EntryMetadata, Signable
 
 // Ledger schemas (value exports for runtime validation)
 export { LedgerEntrySchema, LedgerEntryTypeSchema, EntryAuthorSchema, EntryMetadataSchema, SignableContentSchema } from './types/ledger.js';
+
+// ACL
+export { AclManager, computeAclState } from './acl/manager.js';
+
+// ACL errors
+export { AclError, GrantNotFoundError, GrantAlreadyRevokedError, GrantAlreadyExpiredError } from './acl/errors.js';
+
+// ACL types (type-only exports for isolatedModules)
+export type {
+  AclPermission,
+  AclGrantPayload,
+  AclModifyPayload,
+  AclRevokePayload,
+  AclExpirePayload,
+  AclPayload,
+  AclEntityType,
+  AclCheckResult,
+  AclGrantState,
+} from './types/acl.js';
+
+// ACL schemas (value exports for runtime validation)
+export {
+  AclPermissionSchema,
+  AclGrantPayloadSchema,
+  AclModifyPayloadSchema,
+  AclRevokePayloadSchema,
+  AclExpirePayloadSchema,
+  AclPayloadSchema,
+  AclEntityTypeSchema,
+  AclCheckResultSchema,
+  AclGrantStateSchema,
+} from './types/acl.js';

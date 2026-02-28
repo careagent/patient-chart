@@ -28,3 +28,27 @@ export {
   VerificationStatusSchema,
   NoteTypeSchema,
 } from './knowledge.js';
+
+// ACL types
+export type {
+  AclPermission,
+  AclGrantPayload,
+  AclModifyPayload,
+  AclRevokePayload,
+  AclExpirePayload,
+  AclPayload,
+  AclEntityType,
+  AclCheckResult,
+  AclGrantState,
+} from './acl.js';
+export {
+  AclPermissionSchema,
+  AclGrantPayloadSchema,
+  AclModifyPayloadSchema,
+  AclRevokePayloadSchema,
+  AclExpirePayloadSchema,
+  AclPayloadSchema,
+  AclEntityTypeSchema,
+  AclCheckResultSchema,
+  AclGrantStateSchema,
+} from './acl.js';
