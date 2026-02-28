@@ -104,3 +104,27 @@ export {
   AclCheckResultSchema,
   AclGrantStateSchema,
 } from './types/acl.js';
+
+// Chart Read API
+export { ChartReader, createChartReader } from './chart/reader.js';
+export type { ChartReaderOptions } from './chart/reader.js';
+
+// Chart Read API types (type-only exports for isolatedModules)
+export type {
+  ChartQueryParams,
+  ChartEntryResult,
+  ChartQueryResult,
+  ChartIntegrityResult,
+  KnowledgeReadResult,
+} from './types/chart-read.js';
+
+// Chart Read API schemas (value exports for runtime validation)
+export {
+  ChartQueryParamsSchema,
+  ChartEntryResultSchema,
+  ChartQueryResultSchema,
+  ChartIntegrityResultSchema,
+  KnowledgeReadResultSchema,
+  DEFAULT_QUERY_LIMIT,
+  MAX_QUERY_LIMIT,
+} from './types/chart-read.js';
