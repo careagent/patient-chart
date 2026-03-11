@@ -5,23 +5,22 @@
 See: .planning/PROJECT.md (updated 2026-02-21)
 
 **Core value:** The patient's health record is a permanent, tamper-proof, encrypted artifact that the patient owns absolutely -- it outlives every application that touches it.
-**Current focus:** Phase 3 in progress -- Immutable Ledger
+**Current focus:** Phase 4 substantially complete -- Access Control; Phase 5 read API done
 
 ## Current Position
 
-Phase: 3 of 9 (Immutable Ledger)
-Plan: 4 of 4 in current phase (COMPLETE)
-Status: Phase 3 complete -- all 4 plans executed
-Last activity: 2026-02-24 -- Completed 03-04-PLAN.md (Ledger Integrity Verification & Exports)
+Phase: 4 of 8 (Access Control) -- substantially complete
+Status: ACL manager and ChartReader implemented; Phase 4 ~90% done, Phase 5 ~20% (read API only)
+Last activity: 2026-02-28 -- Sessions 05a/05b/05c (ledger cleanup, ACL manager, ChartReader)
 
-Progress: [██████----] 56%
+Progress: [██████▌---] 65%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 15
-- Average duration: 3min
-- Total execution time: 0.80 hours
+- Total plans completed: 15 (GSD-tracked) + 3 sessions outside GSD
+- Average duration: 3min (GSD plans)
+- Total execution time: 0.80 hours (GSD plans)
 
 **By Phase:**
 
@@ -30,11 +29,12 @@ Progress: [██████----] 56%
 | 1 - Vault Foundation | 4 | 16min | 4min |
 | 2 - Encryption & Key Management | 4 | 10min | 2.5min |
 | 3 - Immutable Ledger | 4 | 14min | 3.5min |
+| 4 - Access Control | — | — | (done outside GSD: sessions 05a/05b/05c) |
 | 9 - Knowledge Graph Layer | 3 | 12min | 4min |
 
 **Recent Trend:**
 - Last 5 plans: 3min, 2min, 3min, 3min, 3min
-- Trend: stable
+- Trend: stable (GSD plans); sessions 05a-05c done outside GSD tracking
 
 *Updated after each plan completion*
 
@@ -90,6 +90,9 @@ Recent decisions affecting current work:
 - [03-04]: verifyLedgerChain hashes the raw JSON line string (same as writer) for SHA-256 chain verification -- consistent with audit/integrity.ts pattern, avoids key-order non-determinism
 - [03-04]: verifyLedgerIntegrity delegates to readEntry() for signature/decryption -- single source of truth, avoids duplicating crypto logic
 - [03-04]: LedgerIntegrityResult.errorType discriminant ('chain' | 'signature' | 'decryption' | 'schema' | 'json') differentiates key-unavailability from active tampering
+- [05a]: Ledger pipeline completion/cleanup session
+- [05b]: AclManager class (src/acl/, 418 lines) with event-sourced grants stored as ledger entries. Methods: grant(), modify(), revoke(), expire(), checkAccess(), computeState(). Types in src/types/acl.ts (151 lines). Errors in src/acl/errors.ts. 65 test cases (827 lines)
+- [05c]: ChartReader (src/chart/, 408 lines) -- ACL-enforced read API. createChartReader() factory, query() with pagination, getEntry(), verifyIntegrity(), knowledge note access. Types in src/types/chart-read.ts (113 lines). 48 test cases (842 lines)
 
 ### Roadmap Evolution
 
@@ -107,6 +110,7 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-24
-Stopped at: Completed 03-04-PLAN.md (Ledger Integrity Verification & Exports) -- Phase 3 complete
+Last session: 2026-02-28
+Stopped at: Session 05c -- ChartReader implemented (ACL-enforced read API)
+Phase 4 near-complete (ACL manager done, write gate/audit integration remain). Phase 5 read API done (ChartReader), write API/sync/emergency not started. 40 new exports added to src/index.ts.
 Resume file: None

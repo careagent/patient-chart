@@ -134,3 +134,7 @@ Created by `createVault()`: initializes subdirectories (defined in `VAULT_SUBDIR
 ### UUIDv7
 
 `src/util/uuidv7.ts` -- time-ordered UUIDs for entry IDs. Ensures chronological ordering of entries.
+
+### A2A Protocol
+
+Patient-chart is **unaffected** by A2A adoption. It is a local library with no network exposure — consumed by patient-core as a dependency. No A2A SDK, no Agent Card, no network transport.

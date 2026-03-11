@@ -14,9 +14,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Vault Foundation & Audit Pipeline** - Buildable project scaffold with vault directory creation, hash-chained audit trail, and integrity verification
 - [x] **Phase 2: Encryption & Key Management** - Complete cryptographic layer with AES-256-GCM, Ed25519, X25519, scrypt, and key ring with rotation
-- [ ] **Phase 3: Immutable Ledger** - Hash-chained, encrypted, signed JSONL ledger with write/read pipelines, query engine, and integrity verification
-- [ ] **Phase 4: Access Control** - Event-sourced ACL as ledger entries with six roles, write gate, read gate, and materialized view
-- [ ] **Phase 5: Local API, Sync Engine & Emergency Access** - PatientChart facade class, event-driven sync with encrypted delivery, and break-glass emergency protocol
+- [x] **Phase 3: Immutable Ledger** - Hash-chained, encrypted, signed JSONL ledger with write/read pipelines, query engine, and integrity verification
+- [ ] **Phase 4: Access Control** - Event-sourced ACL as ledger entries with six roles, write gate, read gate, and materialized view (~90% complete: ACL manager done, write/read gate integration remains)
+- [ ] **Phase 5: Local API, Sync Engine & Emergency Access** - PatientChart facade class, event-driven sync with encrypted delivery, and break-glass emergency protocol (~20%: ChartReader read API done)
 - [ ] **Phase 6: Backup Management** - Encrypted backup archives with incremental watermarks and retention policy enforcement
 - [ ] **Phase 7: Integration Testing** - End-to-end tests for all vault workflows and mock consumer verification
 - [ ] **Phase 8: Documentation & Release** - Architecture guide, API reference, backup guide, README, and CONTRIBUTING
@@ -87,11 +87,14 @@ Plans:
   3. The read gate denies a read when any of its four checks fail (no grant, out-of-scope entry type, outside date range, expired grant) and records the denial reason in the audit trail
   4. Grant revocation immediately and permanently blocks the revoked grantee from further reads and writes, with no race window
   5. The materialized ACL view is rebuilt from ledger entries on vault open and provides O(1) grant lookups by grantee ID during gate checks
-**Plans**: TBD
+**Plans**: Done outside GSD (sessions 05a/05b)
 
-Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
+Implemented (outside GSD):
+- [x] AclManager class (src/acl/, 418 lines) -- event-sourced grants as ledger entries. Methods: grant(), modify(), revoke(), expire(), checkAccess(), computeState(). Types in src/types/acl.ts (151 lines). Errors in src/acl/errors.ts. 65 test cases (827 lines).
+
+Remaining:
+- [ ] Write gate (5 checks) and read gate (4 checks) integrated with ledger write/read paths
+- [ ] Audit trail integration for gate denials
 
 ### Phase 5: Local API, Sync Engine & Emergency Access
 **Goal**: PatientChart facade class with create/open/close lifecycle orchestrating all subsystems, an event-driven sync engine with X25519-encrypted per-recipient delivery and retry queue, and a break-glass emergency access protocol with four auth methods and time-limited sessions
@@ -103,11 +106,16 @@ Plans:
   3. Every new ledger entry triggers a sync check, and entries within scope of a sync-enabled grant are encrypted per-recipient via X25519 and delivered, with failed deliveries queued for retry with exponential backoff and patient notification after configured failure threshold
   4. Grant revocation immediately cancels all pending sync deliveries for that grant and prevents future sync to the revoked recipient
   5. Emergency access authenticates via one of four methods (passphrase, multi-party quorum, hardware key, trusted Neuron), opens a time-limited read session that automatically expires, enforces a cooldown between sessions, and logs every event to the audit trail
-**Plans**: TBD
+**Plans**: Partially done outside GSD (session 05c)
 
-Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
+Implemented (outside GSD):
+- [x] ChartReader (src/chart/, 408 lines) -- ACL-enforced read API. createChartReader() factory, query() with pagination, getEntry(), verifyIntegrity(), knowledge note access. Types in src/types/chart-read.ts (113 lines). 48 test cases (842 lines).
+
+Remaining:
+- [ ] PatientChart facade (create/open/close lifecycle)
+- [ ] Write API (ACL-enforced entry writes)
+- [ ] Sync engine (X25519-encrypted delivery, retry queue, revocation cancellation)
+- [ ] Emergency access (4 auth methods, time-limited sessions, cooldown)
 
 ### Phase 6: Backup Management
 **Goal**: Encrypted backup archives with incremental watermarks, full backup support, and retention policy enforcement -- all recorded as ledger entries and audit events
@@ -166,8 +174,8 @@ Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6 > 7 > 8
 | 1. Vault Foundation & Audit Pipeline | 4/4 | Complete    | 2026-02-21 |
 | 2. Encryption & Key Management | 4/4 | Complete    | 2026-02-22 |
 | 3. Immutable Ledger | 4/4 | Complete    | 2026-02-24 |
-| 4. Access Control | 0/0 | Not started | - |
-| 5. Local API, Sync Engine & Emergency Access | 0/0 | Not started | - |
+| 4. Access Control | — (outside GSD) | ~90% complete | 2026-02-28 |
+| 5. Local API, Sync Engine & Emergency Access | — (outside GSD) | ~20% (read API only) | - |
 | 6. Backup Management | 0/0 | Not started | - |
 | 7. Integration Testing | 0/0 | Not started | - |
 | 8. Documentation & Release | 0/0 | Not started | - |

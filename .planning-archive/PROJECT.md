@@ -80,5 +80,16 @@ The PRD (`patient-chart-PRD.md`) contains complete TypeScript interfaces for all
 | Programmatic API only (no HTTP) | Eliminates network attack surface, vault is local infrastructure | — Pending |
 | Materialized ACL view (rebuilt on open) | O(1) grant lookups without external index, consistency guaranteed by rebuild | — Pending |
 
+## Current State (2026-02-28)
+
+Phases 1-3 and 9 complete via GSD. Three additional sessions (05a/05b/05c) done outside GSD:
+
+- **ACL Manager** (src/acl/): Event-sourced access control with grant(), modify(), revoke(), expire(), checkAccess(), computeState(). 418 lines, 65 tests.
+- **ChartReader** (src/chart/): ACL-enforced read API with createChartReader() factory, query() with pagination, getEntry(), verifyIntegrity(). 408 lines, 48 tests.
+- **Package exports**: 40 new exports added to src/index.ts.
+- **Test count**: ~297 tests (up from ~184).
+
+Phase 4 (Access Control) is ~90% complete -- ACL manager done, write/read gate integration remains. Phase 5 (Local API) is ~20% -- ChartReader read side done, write API/sync/emergency not started.
+
 ---
-*Last updated: 2026-02-21 after initialization*
+*Last updated: 2026-03-02 after GSD audit sync*
